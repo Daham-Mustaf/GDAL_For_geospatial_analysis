@@ -1,3 +1,4 @@
+
 OgrInfo countries.shp
 
 OgrInfo -ro -so countries.shp
@@ -10,3 +11,4 @@ ogr2ogr countries.shp -t_srs "EPSG:4326" /Users/m-store/Desktop/GDAL/new new_cou
 ogr2ogr/Users/m-store/Desktop/GDAL/new countries.shp -t_srs "EPSG:4326" /Users/m-store/Desktop/GDAL/new_count.shp
 
 $ OgrInfo --formats countries.shp 
+ogr2ogr -f GeoJSON -t_srs crs:84 country.geojson countries.shp
