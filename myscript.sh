@@ -1,0 +1,1 @@
+OgrInfo countries.shp
