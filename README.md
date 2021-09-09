@@ -5,9 +5,18 @@ The  `ogrinfo` program lists various information about an OGR-supported data sou
 ```bash
 $ OgrInfo countries.shp
 ```
-get full information about ESRI shape fiel. we can use  `-so`
+List all features of all layers
+```bash
+$ OgrInfo -al countries.shp 
+```
+
+For getting full information about ESRI shape fiel. we can use  `-so`
 ```bash
 $ OgrInfo -so countries.shp
 ```
-`-so` listing of individual features and show only summary information like projection, schema, feature count and extents, we can eqxtedn adn combine with sql quries.
+`-so` listing of individual features and show only summary information like projection, schema, feature count and extents, we can eqxtend and combine with sql quries.
+```js
+$ OgrInfo -so countries.shp -sql " SELECT * FROM countries"
+```
+
 
