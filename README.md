@@ -26,6 +26,7 @@ Get full details for a Specific Record of an ESRI Shapefile.
 ```js
 $ OgrInfo -so countries.shp -sql " SELECT * FROM countries" -fid 0
 ```
+the result stored in [`firstRowRecord.txt`](https://github.com/Daham-Mustaf/GDAL_For_-geospatial_analysis/blob/main/ComandResultReport/firstRowRecord.txt)
 List all metadata domains available for the dataset.
 ```bash
 $ OgrInfo -listmdd countries.shp
