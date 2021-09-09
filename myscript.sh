@@ -24,4 +24,11 @@ OgrInfo PG:"host=localhost port=5433 user='postgres' password='postgres' dbname=
 OgrInfo PG:"dbname='postGis' user='postgres'
      password='postgres'" xyz -fid 1
 
+ogr2ogr -f PostgreSQL -sql"SELECT ST_AsText(geom) AS the_geom
+   FROM xyz
+   ORDER BY x DESC LIMIT 100" 
+-nlt POINT
+PG:"dbname='postGis' user='postgres'
+     password='postgres'" xyz
+
 
