@@ -49,7 +49,23 @@ Count Records in an ESRI Shapefile, in countries.shp we would like to count the 
 ```js
 $ OgrInfo -sql "SELECT COUNT(NAME) AS NumberOFCountries FROM countries" countries.shp >NameOFCountries.txt
 ```
-
-
-
+Count DISTINCT Records in an ESRI Shapefile:
+```bash
+OgrInfo -sql "SELECT COUNT(DISTINCT FIPS) FROM countries " countries.shp> DISTINCTFIPS.txt
+```
+Analyzing PostGIS table with `OgrInfo` use the `-fid` option just to display one record from the table:
+```bash
+ OgrInfo PG:"dbname='postGis' user='postgres' password='postgres'" xyz -fid 1 >xyzTable.txt
+```
+ Query PostGIS to get a list of Points in xyz Table:
+ connect to database:
+ ```bash
+ postGis-# \c postGis  
+ ```
+ Query PostGIS Points in xyz Table:
+ ```js
+ postGis-# SELECT ST_AsText(geom) AS the_geom 
+ FROM xyz 
+ ORDER BY x DESC LIMIT 100;> xyzQury.txt
+ ```
 
