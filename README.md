@@ -1,6 +1,8 @@
 # GDAL_Introduction
 GDAL is a translator library for raster and vector geospatial data formats that is released under an X/MIT style Open Source license by the Open Source Geospatial Foundation. As a library, it presents a single raster abstract data model and single vector abstract data model to the calling application for all supported formats. <br />
-The  `ogrinfo` program lists various information about an OGR-supported data source to stdout (the terminal). By executing SQL statements it is also possible to edit data.
+The  `ogrinfo` program lists various information about an OGR-supported data source to stdout (the terminal). By executing SQL statements it is also possible to edit data.<br />
+# Note that:<br />
+the resutls of the command lines can be found in [`ComandResultReport`](https://github.com/Daham-Mustaf/GDAL_For_-geospatial_analysis/tree/main/ComandResultReport)
 
 ```bash
 $ OgrInfo countries.shp
@@ -24,7 +26,7 @@ $ OgrInfo -so countries.shp -sql " SELECT * FROM countries"
 ```
 Get full details for a Specific Record of an ESRI Shapefile.
 ```js
-$ OgrInfo -so countries.shp -sql " SELECT * FROM countries" -fid 0
+$ OgrInfo -so countries.shp -sql " SELECT * FROM countries" -fid 0 >firstRowRecord.txt
 ```
 the result stored in [`firstRowRecord.txt`](https://github.com/Daham-Mustaf/GDAL_For_-geospatial_analysis/blob/main/ComandResultReport/firstRowRecord.txt)
 List all metadata domains available for the dataset.
