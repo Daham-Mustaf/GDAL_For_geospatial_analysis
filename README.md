@@ -28,7 +28,7 @@ Get full details for a Specific Record of an ESRI Shapefile.
 ```js
 $ OgrInfo -so countries.shp -sql " SELECT * FROM countries" -fid 0 >firstRowRecord.txt
 ```
-the result stored in [`firstRowRecord.txt`](https://github.com/Daham-Mustaf/GDAL_For_-geospatial_analysis/blob/main/ComandResultReport/firstRowRecord.txt)
+the result stored in [`firstRowRecord.txt`](https://github.com/Daham-Mustaf/GDAL_For_-geospatial_analysis/blob/main/ComandResultReport/firstRowRecord.txt)<br />
 List all metadata domains available for the dataset.
 ```bash
 $ OgrInfo -listmdd countries.shp
@@ -47,7 +47,7 @@ $ ogr2ogr -sql "SELECT * FROM countries WHERE NAME='Germany'" germany.shp countr
 ```
 Count Records in an ESRI Shapefile, in countries.shp we would like to count the number of countries
 ```js
-$ OgrInfo -sql "SELECT COUNT(NAME) FROM countries" countries.shp
+$ OgrInfo -sql "SELECT COUNT(NAME) AS NumberOFCountries FROM countries" countries.shp >NameOFCountries.txt
 ```
 
 
