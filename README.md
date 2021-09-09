@@ -30,5 +30,9 @@ List all metadata domains available for the dataset.
 ```bash
 $ OgrInfo -listmdd countries.shp
 ```
+List the format drivers that are enabled.
+```bash
+$ OgrInfo --formats countries.shp 
+```
 
 
