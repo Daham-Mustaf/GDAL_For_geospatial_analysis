@@ -19,4 +19,9 @@ OgrInfo -sql "SELECT COUNT(NAME) AS NumberOFCountries FROM countries" countries.
 
 OgrInfo -sql "SELECT COUNT(DISTINCT FIPS) FROM countries " countries.shp> DISTINCTFIPS.txt
 
+OgrInfo PG:"host=localhost port=5433 user='postgres' password='postgres' dbname='postGis'"
+
+OgrInfo PG:"dbname='postGis' user='postgres'
+     password='postgres'" xyz -fid 1
+
 
