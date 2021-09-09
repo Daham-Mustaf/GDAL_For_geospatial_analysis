@@ -1,0 +1,12 @@
+INFO: Open of `countries.shp'
+      using driver `ESRI Shapefile' successful.
+
+Layer name: countries
+Geometry: None
+Feature Count: 1
+Layer SRS WKT:
+(unknown)
+NameOFCount: Integer (0.0)
+OGRFeature(countries):0
+  NameOFCount (Integer) = 246
+
