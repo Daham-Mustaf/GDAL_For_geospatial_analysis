@@ -13,3 +13,5 @@ OgrInfo --formats countries.shp
 
 ogr2ogr -f GeoJSON -t_srs "EPSG:4326" country.geojson countries.shp
 
+ogr2ogr -sql "SELECT * FROM countries WHERE NAME='Germany'" germany.shp countries.shp
+
