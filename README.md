@@ -34,5 +34,10 @@ List the format drivers that are enabled.
 ```bash
 $ OgrInfo --formats countries.shp 
 ```
+Converting an ESRI Shapefile to GeoJSON format:
+```bash
+$ ogr2ogr -f GeoJSON -t_srs "EPSG:4326" country.geojson countries.shp
+```
+
 
 
