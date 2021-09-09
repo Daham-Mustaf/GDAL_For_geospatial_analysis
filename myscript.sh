@@ -15,8 +15,8 @@ OgrInfo --formats countries.shp
 
 ogr2ogr -f GeoJSON -t_srs "EPSG:4326" country.geojson countries.shp
 
-OgrInfo -sql "SELECT COUNT(NAME) AS NameOFCountries FROM countries" countries.shp
+OgrInfo -sql "SELECT COUNT(NAME) AS NumberOFCountries FROM countries" countries.shp >NameOFCountries.txt
 
-ogrinfo -dialect sqlite -sql "SELECT COUNT(*) FROM countries AS Countries WHERE roadcnt = 1 GROUP BY road_name" roads.shp >report.txt
+OgrInfo -sql "SELECT COUNT(DISTINCT FIPS) FROM countries " countries.shp> DISTINCTFIPS.txt
 
 
