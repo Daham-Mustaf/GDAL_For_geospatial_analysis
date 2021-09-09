@@ -38,6 +38,15 @@ Converting an ESRI Shapefile to GeoJSON format:
 ```bash
 $ ogr2ogr -f GeoJSON -t_srs "EPSG:4326" country.geojson countries.shp
 ```
+Selecting features by attributes using `ogr2ogr` Select Records and Create a New Shapefile:
+```js
+$ ogr2ogr -sql "SELECT * FROM countries WHERE NAME='Germany'" germany.shp countries.shp
+```
+Count Records in an ESRI Shapefile, in countries.shp we would like to count the number of countries
+```js
+$ OgrInfo -sql "SELECT COUNT(NAME) FROM countries" countries.shp
+```
+
 
 
 
