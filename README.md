@@ -47,7 +47,7 @@ $ ogr2ogr -sql "SELECT * FROM countries WHERE NAME='Germany'" germany.shp countr
 ```
 Count Records in an ESRI Shapefile, in countries.shp we would like to count the number of countries
 ```js
-$ OgrInfo -sql "SELECT COUNT(NAME) FROM countries" countries.shp
+$ OgrInfo -sql "SELECT COUNT(NAME) AS NumberOFCountries FROM countries" countries.shp >NameOFCountries.txt
 ```
 
 
