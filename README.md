@@ -11,6 +11,11 @@ List all features of all layers:
 ```bash
 $ OgrInfo -al countries.shp 
 ```
+Getting more Help comprehensive listing of options offered by ogr2ogr or ogrinfo, run the following at the FW Tools Shell.
+```bash
+$ OgrInfo --help
+$ ogr2ogr --help
+```
 
 For getting full information about ESRI shape fiel. we can use  `-so`
 ```bash
