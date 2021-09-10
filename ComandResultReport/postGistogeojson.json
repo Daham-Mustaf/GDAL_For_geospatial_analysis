@@ -1,0 +1,7 @@
+select st_asgeojson(geom) from xyz limit 100;                                                  
+------------------------------------------------------------------------------------------------------------------
+ {"type":"Point","crs":{"type":"name","properties":{"name":"EPSG:3734"}},"coordinates":[2.238431533,5.069606813]}
+ {"type":"Point","crs":{"type":"name","properties":{"name":"EPSG:3734"}},"coordinates":[2.380536936,8.393864231]}
+ {"type":"Point","crs":{"type":"name","properties":{"name":"EPSG:3734"}},"coordinates":[0.710937483,7.870231991]}
+ {"type":"Point","crs":{"type":"name","properties":{"name":"EPSG:3734"}},"coordinates":[1.381436931,7.398942306]}
+(4 rows)

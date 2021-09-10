@@ -47,3 +47,8 @@ pgsql2shp -f '/Users/m-store/Desktop/GDAL' -g 'geom'  -h 'localhost' -U 'postgre
 "SELECT ST_AsText(geom) AS the_geom
    FROM xyz
    ORDER BY x DESC LIMIT 100" 
+
+
+ogr2ogr -f GeoJSON xyz.json
+  PG:"host=localhost port=5433 user='postgres' password='postgres' dbname='postGis'" 
+  -sql "select way,name,amenity from planet_osm_point a where a.amenity is not null"
