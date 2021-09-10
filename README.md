@@ -88,3 +88,7 @@ Analyzing PostGIS table with `OgrInfo` use the `-fid` option just to display one
   ```js
  SELECT st_asgeojson(geom) FROM xyz LIMIT 100;
  ```
+Extract data from PostGIS to KML the function `ST_AsKML(geom)` returns the geometry as a Keyhole Markup Language (KML) element. 
+```js
+SELECT ST_AsKML(geom) FROM xyz LIMIT 100;
+ ```
