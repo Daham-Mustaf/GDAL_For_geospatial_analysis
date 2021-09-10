@@ -11,8 +11,17 @@ List all features of all layers:
 ```bash
 $ OgrInfo -al countries.shp 
 ```
-
-For getting full information about ESRI shape fiel. we can use  `-so`
+Getting more Help comprehensive listing of options offered by ogr2ogr or ogrinfo, run the following at the FW Tools Shell.
+```bash
+$ OgrInfo --help
+$ ogr2ogr --help
+```
+Getting full help of `ogrinfo` or  `ogr2ogr` 
+```bash
+$ ogr2ogr --long-usage > ogr2ogrfullhelp.txt
+```
+tha result flag `--long-usage` saved in ogr2ogrfullhelp.txt.<br />
+ Getting full information about ESRI shape fiel. we can use  `-so`
 ```bash
 $ OgrInfo -so countries.shp
 ```
@@ -25,6 +34,7 @@ $ OgrInfo -ro -so countries.shp
 ```js
 $ OgrInfo -so countries.shp -sql " SELECT * FROM countries"
 ```
+` -sql statement`: Execute given SQL statement and save result.<br />
 Get full details for a Specific Record of an ESRI Shapefile.
 ```js
 $ OgrInfo -so countries.shp -sql " SELECT * FROM countries" -fid 0 >firstRowRecord.txt
@@ -46,6 +56,7 @@ Converting an ESRI Shapefile to GeoJSON format:
 ```bash
 $ ogr2ogr -f GeoJSON -t_srs "EPSG:4326" country.geojson countries.shp
 ```
+`-t_srs srs_def`: Reproject/transform to this SRS on output. <br />
 Selecting features by attributes using `ogr2ogr` Select Records and Create a New Shapefile:
 ```js
 $ ogr2ogr -sql "SELECT * FROM countries WHERE NAME='Germany'" germany.shp countries.shp
@@ -73,4 +84,7 @@ Analyzing PostGIS table with `OgrInfo` use the `-fid` option just to display one
  FROM xyz 
  ORDER BY x DESC LIMIT 100;> xyzQury.txt
  ```
-
+ Extract data from PostGIS to a GeoJSON file: by using postgis `t_asgeojson(geom)` function: the result asved in postGistogeojson.json file.
+  ```js
+ select st_asgeojson(geom) from xyz limit 100;
+ ```
