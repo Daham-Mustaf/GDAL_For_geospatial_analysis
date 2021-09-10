@@ -21,6 +21,7 @@ summary of the metadata:
 $ OgrInfo -ro -so countries.shp
 ```
 `-so` listing of individual features and show only summary information like projection, schema, feature count and extents, we can eqxtend and combine with sql quries.
+
 ```js
 $ OgrInfo -so countries.shp -sql " SELECT * FROM countries"
 ```
@@ -37,6 +38,10 @@ List the format drivers that are enabled.
 ```bash
 $ OgrInfo --formats countries.shp 
 ```
+For both these GDAL commands, the default output format is GeoTiff; if you need a different format, you must use the `-of` option and assign to it one of the outputs produced by the previous command line
+```bash
+ $ gdalinfo --formats
+ ```
 Converting an ESRI Shapefile to GeoJSON format:
 ```bash
 $ ogr2ogr -f GeoJSON -t_srs "EPSG:4326" country.geojson countries.shp
