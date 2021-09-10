@@ -31,4 +31,19 @@ ogr2ogr -f PostgreSQL -sql"SELECT ST_AsText(geom) AS the_geom
 PG:"dbname='postGis' user='postgres'
      password='postgres'" xyz
 
+ogr2ogr -f GeoJSON -t_srs EPSG:4326 pointXYZ.geojson PG:"host=localhost port=5433 user='postgres' password='postgres' dbname='postGis'" -sql"SELECT ST_AsText(geom) AS the_geom
+   FROM xyz
+   ORDER BY x DESC LIMIT 100" 
 
+ogr2ogr -t_srs EPSG:4326 -f CSV -lco GEOMETRY=AS_XY
+         -lco SEPARATOR=TAB warmest_hs.csv
+PG:"host=localhost port=5433 user='postgres' password='postgres' dbname='postGis'"
+-sql"SELECT ST_AsText(geom) AS the_geom
+   FROM xyz
+   ORDER BY x DESC LIMIT 100" 
+ogr2ogr -f PostgreSQL -sql "SELECT COUNT(DISTINCT FIPS) FROM countries " countries.shp> DISTINCTFIPS.txt
+
+pgsql2shp -f '/Users/m-store/Desktop/GDAL' -g 'geom'  -h 'localhost' -U 'postgres' "<query>"
+"SELECT ST_AsText(geom) AS the_geom
+   FROM xyz
+   ORDER BY x DESC LIMIT 100" 
