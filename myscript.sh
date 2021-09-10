@@ -49,6 +49,5 @@ pgsql2shp -f '/Users/m-store/Desktop/GDAL' -g 'geom'  -h 'localhost' -U 'postgre
    ORDER BY x DESC LIMIT 100" 
 
 
-ogr2ogr -f GeoJSON xyz.json
-  PG:"host=localhost port=5433 user='postgres' password='postgres' dbname='postGis'" 
-  -sql "select way,name,amenity from planet_osm_point a where a.amenity is not null"
+
+ogr2ogr -f "GeoJSON" xyz.geojson PG:"host=localhost port=5433 user='postgres' password='postgres' dbname='postGis'"  -sql "SELECT  *FROM xyz LIMIT 100"
