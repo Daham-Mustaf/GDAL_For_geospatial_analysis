@@ -84,4 +84,7 @@ Analyzing PostGIS table with `OgrInfo` use the `-fid` option just to display one
  FROM xyz 
  ORDER BY x DESC LIMIT 100;> xyzQury.txt
  ```
-
+ Extract data from PostGIS to a GeoJSON file: by using postgis `t_asgeojson(geom)` function: the result asved in postGistogeojson.json file.
+  ```js
+ select st_asgeojson(geom) from xyz limit 100;
+ ```
