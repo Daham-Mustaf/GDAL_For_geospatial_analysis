@@ -16,8 +16,12 @@ Getting more Help comprehensive listing of options offered by ogr2ogr or ogrinfo
 $ OgrInfo --help
 $ ogr2ogr --help
 ```
-
-For getting full information about ESRI shape fiel. we can use  `-so`
+Getting full help of `ogrinfo` or  `ogr2ogr` 
+```bash
+$ ogr2ogr --long-usage > ogr2ogrfullhelp.txt
+```
+tha result flag `--long-usage` saved in ogr2ogrfullhelp.txt.<br />
+ Getting full information about ESRI shape fiel. we can use  `-so`
 ```bash
 $ OgrInfo -so countries.shp
 ```
