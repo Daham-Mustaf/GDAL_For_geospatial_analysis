@@ -2,7 +2,11 @@
 GDAL is a translator library for raster and vector geospatial data formats that is released under an X/MIT style Open Source license by the Open Source Geospatial Foundation. As a library, it presents a single raster abstract data model and single vector abstract data model to the calling application for all supported formats. <br />
 The  `ogrinfo` program lists various information about an OGR-supported data source to stdout (the terminal). By executing SQL statements it is also possible to edit data.<br />
 # Note that:<br />
-the resutls of the command lines can be found in [`ComandResultReport`](https://github.com/Daham-Mustaf/GDAL_For_-geospatial_analysis/tree/main/ComandResultReport)
+the resutls of the command lines can be found in [`ComandResultReport`](https://github.com/Daham-Mustaf/GDAL_For_-geospatial_analysis/tree/main/ComandResultReport)<br />
+Check which version of GDAL
+```bash
+gdalinfo --version
+```
 
 ```bash
 $ OgrInfo countries.shp
@@ -25,6 +29,10 @@ tha result flag `--long-usage` saved in ogr2ogrfullhelp.txt.<br />
 ```bash
 $ OgrInfo -so countries.shp
 ```
+List raster/image file details
+```bash
+$ gdalinfo sample_DEM.tiff > ListRaster.txt
+```
 summary of the metadata:
 ```bash
 $ OgrInfo -ro -so countries.shp
@@ -44,7 +52,8 @@ List all metadata domains available for the dataset.
 ```bash
 $ OgrInfo -listmdd countries.shp
 ```
-List the format drivers that are enabled.
+List the format drivers that are enabled. The result also shows whether the format can be used for
+read and/or write:
 ```bash
 $ OgrInfo --formats countries.shp 
 ```
@@ -52,7 +61,7 @@ For both these GDAL commands, the default output format is GeoTiff; if you need 
 ```bash
  $ gdalinfo --formats
  ```
-Converting an ESRI Shapefile to GeoJSON format:
+Converting an ESRI Shapefile to GeoJSON format: `Ogr2ogr` is a command-line tool that is part of the GDAL suite. You can use it to import an ever-growing list of spatial and non-spatial formats into PostgreSQL/PostGIS. 
 ```bash
 $ ogr2ogr -f GeoJSON -t_srs "EPSG:4326" country.geojson countries.shp
 ```
@@ -92,3 +101,5 @@ Extract data from PostGIS to KML the function `ST_AsKML(geom)` returns the geome
 ```js
 SELECT ST_AsKML(geom) FROM xyz LIMIT 100;
  ```
+ # Importing with ogr2ogr:<br />
+Ogr2ogr can be used to import numerous kinds of vector data formats. we’ll cover the more common vector formats people need to load.
