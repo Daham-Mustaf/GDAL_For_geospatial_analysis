@@ -1,0 +1,65 @@
+Driver: GTiff/GeoTIFF
+Files: sample_DEM.tiff
+Size is 3239, 4003
+Coordinate System is:
+PROJCRS["WGS_1984_UTM_Zone_38N",
+    BASEGEOGCRS["WGS 84",
+        DATUM["World Geodetic System 1984",
+            ELLIPSOID["WGS 84",6378137,298.257223563,
+                LENGTHUNIT["metre",1]]],
+        PRIMEM["Greenwich",0,
+            ANGLEUNIT["degree",0.0174532925199433]],
+        ID["EPSG",4326]],
+    CONVERSION["Transverse Mercator",
+        METHOD["Transverse Mercator",
+            ID["EPSG",9807]],
+        PARAMETER["Latitude of natural origin",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8801]],
+        PARAMETER["Longitude of natural origin",45,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8802]],
+        PARAMETER["Scale factor at natural origin",0.9996,
+            SCALEUNIT["unity",1],
+            ID["EPSG",8805]],
+        PARAMETER["False easting",500000,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8806]],
+        PARAMETER["False northing",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8807]]],
+    CS[Cartesian,2],
+        AXIS["easting",east,
+            ORDER[1],
+            LENGTHUNIT["metre",1]],
+        AXIS["northing",north,
+            ORDER[2],
+            LENGTHUNIT["metre",1]],
+    ID["EPSG",32638]]
+Data axis to CRS axis mapping: 1,2
+Origin = (499987.482252724235877,4095355.229055912699550)
+Pixel Size = (27.832729074175912,-27.832729074175933)
+Metadata:
+  AREA_OR_POINT=Area
+  DataType=Generic
+Image Structure Metadata:
+  INTERLEAVE=BAND
+Corner Coordinates:
+Upper Left  (  499987.482, 4095355.229) ( 44d59'59.49"E, 37d 0'15.67"N)
+Lower Left  (  499987.482, 3983940.815) ( 44d59'59.50"E, 35d59'59.75"N)
+Upper Right (  590137.692, 4095355.229) ( 46d 0'46.95"E, 37d 0' 0.11"N)
+Lower Right (  590137.692, 3983940.815) ( 46d 0' 0.15"E, 35d59'44.75"N)
+Center      (  545062.587, 4039648.022) ( 45d30'11.47"E, 36d30' 3.97"N)
+Band 1 Block=128x128 Type=Int16, ColorInterp=Gray
+  Min=430.000 Max=3580.000 
+  Minimum=430.000, Maximum=3580.000, Mean=1607.248, StdDev=413.454
+  NoData Value=32767
+  Metadata:
+    RepresentationType=ATHEMATIC
+    STATISTICS_COVARIANCES=170943.9919757609
+    STATISTICS_MAXIMUM=3580
+    STATISTICS_MEAN=1607.2482143259
+    STATISTICS_MINIMUM=430
+    STATISTICS_SKIPFACTORX=1
+    STATISTICS_SKIPFACTORY=1
+    STATISTICS_STDDEV=413.45373619761

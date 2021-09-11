@@ -50,4 +50,18 @@ pgsql2shp -f '/Users/m-store/Desktop/GDAL' -g 'geom'  -h 'localhost' -U 'postgre
 
 
 
-ogr2ogr -f "GeoJSON" xyz.geojson PG:"host=localhost port=5433 user='postgres' password='postgres' dbname='postGis'"  -sql "SELECT  *FROM xyz LIMIT 100"
+ogr2ogr -f `GeoJSON' xyz.geojson PG:"host=localhost port=5433 user='postgres' password='postgres' dbname='postGis'"  -sql "SELECT  * FROM spatial_ref_sys "
+
+ogr2ogr -f 'ESRI Shapefile' qds_cnt.shp PPG:"dbname='postGis' host='localhost' port='5432' user='postgres' password='postgres'" -sql "SELECT  * FROM xyzy "
+
+
+PG:"dbname='postGis' host='localhost' port='5432' user='postgres' password='postgres'"
+
+ogr2ogr –f MySQL MySQL:SHP_DB,host=localhost,user= postgres,password= postgres feature_object.shp  -nln phil_custom -update -overwrite -lco engine=MYISAM
+
+to KML
+ogr2ogr -f "KML" us_adminbd.kml
+
+ogr2ogr -f 'PostgreSQL' PG:"host=localhost user= postgres port=5432 dbname= postGis password= postgres " sample.gpx -overwrite -lco GEOMETRY_NAME=geom -nln "staging.aus_biketrip_narangba"
+
+
