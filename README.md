@@ -5,7 +5,16 @@
 - [`ogrinfo`: ](#datasource)
 - [`--help` getting help: ](#help)
 - [`--long-usage` full help:](#fullhelp)
-2. [Some paragraph](#paragraph1)
+2. [Working with shape file](#paragraph1)
+- [What is shape file?](#shape)
+- [List layers](#layers)
+- [`-so`: information about ESRI shape file](#so)
+- [Summary of the metadata:](#meta)
+- [List as Specific Record:](#record)
+- [List the format drivers:](#drive)
+- [Shape file to GeoJSON:](#json)
+- [Create a New Shapefile from a records](#new):
+- [`OgrInfo`Analyzing PostGIS table](#post)
 
 ## GDAL Introduction <a name="introduction"></a>
 ------
@@ -48,33 +57,38 @@ Getting full help of `ogrinfo` or  `ogr2ogr` the result of flag `--long-usage` s
 ```bash
 $ ogr2ogr --long-usage > ogr2ogrfullhelp.txt
 ```
-## Some paragraph <a name="paragraph1"></a>
+## Working with shape files <a name="paragraph1"></a>
+### Shape file:<a name="shape"></a>
+The shapefile format is a geospatial vector data format, The three mandatory files have filename extensions `.shp`, `.shx`, and `.dbf`. The actual shapefile relates specifically to the .shp file, but alone is incomplete for distribution as the other supporting files are required. all mandatory files shuld be available in current working directory.  
+### List all features of all layers: <a name="layers"></a>
 
-List all features of all layers:
 ```bash
 $ OgrInfo -al countries.shp 
 ```
-
-
+### `-so`: information about ESRI shape fiel:<a name="so"></a>
  Getting full information about ESRI shape fiel. we can use  `-so`
+ `-so` listing of individual features and show only summary information like projection, schema, feature count and extents, we can eqxtend and combine with sql quries.
+ 
+### summary of the metadata:<a name="meta"></a>
+```bash
+$ OgrInfo -ro -so countries.shp
+```
+
 ```bash
 $ OgrInfo -so countries.shp
 ```
+
 List raster/image file details
 ```bash
 $ gdalinfo sample_DEM.tiff > ListRaster.txt
 ```
-summary of the metadata:
-```bash
-$ OgrInfo -ro -so countries.shp
-```
-`-so` listing of individual features and show only summary information like projection, schema, feature count and extents, we can eqxtend and combine with sql quries.
+### List all metadata domains available for the dataset.<a name="meta"></a>
 
 ```js
 $ OgrInfo -so countries.shp -sql " SELECT * FROM countries"
 ```
 ` -sql statement`: Execute given SQL statement and save result.<br />
-Get full details for a Specific Record of an ESRI Shapefile.
+### Get full details for a Specific Record of an ESRI Shapefile.<a name="record"></a>
 ```js
 $ OgrInfo -so countries.shp -sql " SELECT * FROM countries" -fid 0 >firstRowRecord.txt
 ```
@@ -83,6 +97,7 @@ List all metadata domains available for the dataset.
 ```bash
 $ OgrInfo -listmdd countries.shp
 ```
+### List the format drivers:<a name="drive"></a>
 List the format drivers that are enabled. The result also shows whether the format can be used for
 read and/or write:
 ```bash
@@ -92,6 +107,7 @@ For both these GDAL commands, the default output format is GeoTiff; if you need 
 ```bash
  $ gdalinfo --formats
  ```
+ ### Shape file to GeoJSON: <a name="json"></a>
 Converting an ESRI Shapefile to GeoJSON format: `Ogr2ogr` is a command-line tool that is part of the GDAL suite. You can use it to import an ever-growing list of spatial and non-spatial formats into PostgreSQL/PostGIS. 
 ```bash
 $ ogr2ogr -f GeoJSON -t_srs "EPSG:4326" country.geojson countries.shp
@@ -101,6 +117,7 @@ Selecting features by attributes using `ogr2ogr` Select Records and Create a New
 ```js
 $ ogr2ogr -sql "SELECT * FROM countries WHERE NAME='Germany'" germany.shp countries.shp
 ```
+### Records and Create a New Shapefile:<a name="new"></a>
 Count Records in an ESRI Shapefile, in countries.shp we would like to count the number of countries
 ```js
 $ OgrInfo -sql "SELECT COUNT(NAME) AS NumberOFCountries FROM countries" countries.shp >NameOFCountries.txt
@@ -109,6 +126,7 @@ Count DISTINCT Records in an ESRI Shapefile:
 ```bash
 OgrInfo -sql "SELECT COUNT(DISTINCT FIPS) FROM countries " countries.shp> DISTINCTFIPS.txt
 ```
+### `OgrInfo`Analyzing PostGIS table: <a name="post"></a>
 Analyzing PostGIS table with `OgrInfo` use the `-fid` option just to display one record from the table:
 ```bash
  OgrInfo PG:"dbname='postGis' user='postgres' password='postgres'" xyz -fid 1 >xyzTable.txt
