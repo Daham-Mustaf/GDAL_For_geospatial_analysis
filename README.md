@@ -15,6 +15,7 @@
 - [Shape file to GeoJSON:](#json)
 - [Create a New Shapefile from a records](#new):
 - [`OgrInfo`Analyzing PostGIS table](#post)
+- [`t_asgeojson(geom)` Extract data from PostGIS to a GeoJSON file:](#extr)
 
 ## GDAL Introduction <a name="introduction"></a>
 ------
@@ -142,6 +143,7 @@ Analyzing PostGIS table with `OgrInfo` use the `-fid` option just to display one
  FROM xyz 
  ORDER BY x DESC LIMIT 100;> xyzQury.txt
  ```
+ ### `t_asgeojson(geom)` Extract data from PostGIS to a GeoJSON file <a name="extr"></a>
  Extract data from PostGIS to a GeoJSON file: by using postgis `t_asgeojson(geom)` function: the result asved in postGistogeojson.json file.
   ```js
  SELECT st_asgeojson(geom) FROM xyz LIMIT 100;
